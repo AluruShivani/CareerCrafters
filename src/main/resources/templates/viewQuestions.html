@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<div th:replace="header::header"></div>
+	<div th:include="title::title"></div>
+</head>
+
+<body style="background-color: rgb(170, 255, 170);" class="bg">
+	<div th:replace="companymenu::companymenu"></div>
+	<h2 class="text-center">Questions</h2>
+	<div class="card" style="width:90%; margin: auto;">
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Vacancy Id</th>
+					<th>Test Id</th>
+					<th>Question</th>
+					<th>Option1</th>
+					<th>Option2</th>
+					<th>Option3</th>
+					<th>Option4</th>
+
+					<th>Correct</th>
+					<th>Score</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="questions : ${questions}">
+					<td th:text="${questions.vacancies.vacancyId}"></td>
+					<td th:text="${questions.test.testId}"></td>
+					<td th:text="${questions.question}"></td>
+					<td th:text="${questions.option1}"></td>
+					<td th:text="${questions.option2}"></td>
+					<td th:text="${questions.option3}"></td>
+					<td th:text="${questions.option4}"></td>
+
+					<td th:text="${questions.correct}"></td>
+					<td th:text="${questions.score}"></td>
+					
+					<td>
+						<a th:href="@{'/deleteQuestion/' + ${questions.questionId}}" class="btn btn-danger">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>

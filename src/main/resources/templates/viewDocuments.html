@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<div th:replace="header::header"></div>
+	<div th:include="title::title"></div>
+	<div th:replace="usermenu::usermenu"></div>
+	<!-- Custom CSS -->
+	<style>
+		/* Custom styles */
+		body {
+			font-family: 'Poppins', sans-serif;
+			/* Use Poppins font */
+		}
+
+		.navbar-custom {
+			background-color: #343a40;
+			/* Dark color for the navbar */
+		}
+
+		.navbar-nav .nav-link.dropdown-toggle::after {
+			transition: transform 0.3s ease;
+		}
+
+		.navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+			display: block;
+		}
+
+		.navbar-custom .navbar-nav .nav-link {
+			color: #ffffff;
+			/* Change the text color */
+		}
+
+		.navbar-custom .navbar-nav .nav-link:hover {
+			color: #ffffff;
+			/* Change the text color on hover */
+		}
+
+		.navbar-custom .dropdown-menu {
+			background-color: #343a40;
+			/* Dark color for the dropdown menu */
+		}
+
+		.navbar-custom .dropdown-menu .dropdown-item {
+			color: #ffffff;
+			/* Change the text color in dropdown items */
+		}
+
+		.navbar-custom .dropdown-menu .dropdown-item:hover {
+			color: blue;
+			/* Change the text color on hover in dropdown items */
+		}
+
+		td {
+			padding: 10px;
+			/* Adjust padding as needed */
+			text-align: center;
+			/* Center align text */
+		}
+
+		th {
+			padding: 10px;
+			/* Adjust padding as needed */
+			background-color: #f0f0f0;
+			/* Example background color */
+			text-align: center;
+			/* Center align text */
+		}
+
+		td:hover {
+			background-color: #ffffcc;
+			/* Light yellow background on hover */
+			transition: background-color 0.3s ease;
+			/* Smooth transition */
+		}
+
+		.btn-primary:hover,
+		.btn-success:hover {
+			background-color: #ffc107;
+			/* Yellow background color on hover */
+			border-color: #ffc107;
+			/* Yellow border color on hover */
+		}
+
+		.btn-primary,
+		.btn-success {
+			transition: background-color 0.3s ease, border-color 0.3s ease;
+			/* Smooth transition */
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Include the navbar -->
+	<div class="container mt-5">
+		<h1 class="text-center text-dark"> Documents</h1>
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Document ID</th>
+						<th>Document Type</th>
+						<th>Document File</th>
+						<th>Edit</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- Iterate over documentList and display each document -->
+					<tr th:each="document : ${documentList}">
+						<td th:text="${document.certificateId}"></td>
+						<td th:text="${document.certificateType}"></td>
+						<td>
+							<a th:href="@{http://localhost:8090/uploads/{documentFile}(documentFile=${document.documentFile})}"
+								download>
+								Download
+							</a>
+						</td>
+						<td><a th:href="@{/editDocument/{certificateId}(certificateId=${document.certificateId})}"
+								class="btn btn-success">Edit</a></td>
+
+						<td><a th:href="@{/jobseeker/deleteDocument/{certificateId}(certificateId=${document.certificateId})}"
+								class="btn btn-danger ">Delete</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- Bootstrap 5 JS (optional) -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+		// jQuery to adjust table height
+		$(document).ready(function () {
+			adjustTableHeight();
+		});
+		function adjustTableHeight() {
+			var windowHeight = $(window).height();
+			var navbarHeight = $(".navbar").outerHeight();
+			var tableHeaderHeight = $("thead").outerHeight();
+			var tableBodyHeight = windowHeight - (navbarHeight + tableHeaderHeight + 50); // 50px for extra padding
+			$(".table-responsive").css("max-height", tableBodyHeight + "px");
+		}
+	</script>
+</body>
+
+</html>

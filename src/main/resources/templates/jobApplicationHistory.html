@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="header::header"></div>
+    <div th:include="title::title"></div>
+    <div th:replace="usermenu::usermenu"></div>
+    <meta charset="UTF-8">
+    <title>Job Seeker Home</title>
+
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* Use Poppins font */
+            padding: 20px; /* Add padding for better spacing */
+        }
+
+        .table-container {
+            overflow-x: auto; /* Enable horizontal scrolling on small screens */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px; /* Add margin at the bottom of the table */
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color:black; /* Dark background color for table headers */
+            color: #ffffff; /* Text color for table headers */
+        }
+
+        td {
+            background-color: white; /* Light background color for table cells */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Alternate row background color */
+        }
+
+        a.btn {
+            color: #ffffff;
+            background-color: green;
+            border-color: #007bff;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        a.btn:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            table {
+                font-size: 12px; /* Reduce font size for smaller screens */
+            }
+
+            th,
+            td {
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table-container">
+        <h2 class="text-center">Job Application History</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Apply ID</th>
+                    <th>User ID</th>
+                    <th>Vacancy Id</th>
+                    <th>Company Id</th>
+                    <th>Company Name</th>
+                    <th>Company Level</th>
+                    <th>City</th>
+                    <th>Location</th>
+                    <th>State</th>
+                    <th>Url</th>
+                    <th>Job Title</th>
+                    <th>Open Date</th>
+                    <th>Close Date</th>
+                    <th>Post Date</th>
+                    <th>Requirements</th>
+                    <th>No. of vacancies</th>
+                    <th>Description</th>
+                    <th>Take Exam</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="jobApplication : ${jobApplications}">
+                    <td><span th:text="${jobApplication.applyId}"></span></td>
+                    <td><span th:text="${jobApplication.jobseekers.userId}"></span></td>
+                    <td><span th:text="${jobApplication.vacancies.vacancyId}"></span></td>
+                    <td><span th:text="${jobApplication.vacancies.company.companyId}"></span></td>
+                    <td><span th:text="${jobApplication.vacancies.company.companyName}"></span></td>
+                    <td><span th:text="${jobApplication.vacancies.company.companyLevel}"></span></td>
+                    <td><span th:text="${jobApplication.vacancies.company.city}"></span></td>
+                    <td><span th:text="${jobApplication.vacancies.company.location}"></span></td>
+                    <td><span th:text="${jobApplication.vacancies.company.state}"></span></td>
+                    <td><span th:text="${jobApplication.vacancies.company.url}"></span></td>
+                    <td><span th:text="${jobApplication.vacancies.jobTitle}"></span></td>
+                    <td><span th:text="${jobApplication.vacancies.openDate}"></span></td>
+                    <td><span th:text="${jobApplication.vacancies.closeDate}"></span></td>
+                    <td><span th:text="${jobApplication.vacancies.postDate}"></span></td>
+                    <td><span th:text="${jobApplication.vacancies.description}"></span></td>
+                    <td><span th:text="${jobApplication.vacancies.requirements}"></span></td>
+                    <td><span th:text="${jobApplication.vacancies.noOfVacancies}"></span></td>
+                    <!-- Add button for Take Exam -->
+                    <td>
+                            
+   							<th:block th:if="${jobApplication.status == 'OnProgress'}">
+								<!-- Enable the button and set its color to red -->
+								<a th:href="@{/takeexam/{vacancyId}(vacancyId=${jobApplication.vacancies.vacancyId})}"
+									class="btn btn-sm btn-danger btn-custom">Take Exam</a>
+							</th:block>
+							<!-- Check if status is not "On progress" -->
+							<th:block th:unless="${jobApplication.status == 'OnProgress'}">
+								<!-- Disable the button and set its color to gray -->
+								<button type="button" class="bt btn-sm " disabled
+									style="background-color: gray; color: white;">Attempted</button>
+							</th:block>
+
+                        </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Bootstrap 5 JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+</body>
+
+</html>

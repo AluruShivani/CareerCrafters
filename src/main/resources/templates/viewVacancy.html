@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div th:replace="header::header"></div>
+    <div th:include="title::title"></div>
+</head>
+
+<body style="background-color: rgb(255, 206, 157);" class="bg">
+    <div th:replace="companymenu::companymenu"></div>
+		 <h2 class="text-center">Vacancy Details</h2>
+    <div class="card" style="width:90%; margin: auto;">
+       
+         <table class="table table-striped">
+        <thead>
+        <tr>
+			
+			
+			<th>Vacancy Id</th>
+            <th>Job Title</th>
+            <th>Description</th>
+            <th>Requirements</th>
+            <th>No. of Vacancies</th>
+            <th>Open Date</th>
+            <th>Close Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Iterate over vacancies -->
+        <tr th:each="vacancy : ${vacancies}">
+			
+			
+			<td th:text="${vacancy.vacancyId}"></td>
+            <td th:text="${vacancy.jobTitle}"></td>
+            <td th:text="${vacancy.description}"></td>
+            <td th:text="${vacancy.requirements}"></td>
+            <td th:text="${vacancy.noOfVacancies}"></td>
+            <td th:text="${vacancy.openDate}"></td>
+            <td th:text="${vacancy.closeDate}"></td>
+           <td>  
+    <a th:href="@{/addTest(vacancyId=${vacancy.vacancyId})}" class="btn btn-success">Add Test</a>
+</td>
+
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>

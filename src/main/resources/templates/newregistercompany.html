@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header::header">
+    <div th:include="title::title"></div>
+</head>
+<body style="background-color:rgb(192, 192, 192)" class="bg">
+   
+    <br/><br/>
+    <h2 class="text-center">Add Your Comapny</h2>
+    <div class="container card" style="width: 50%; margin: auto;">
+        <form th:action="@{/newregistercompany}" th:object="${company}" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="companyId">Company Id</label>
+                    <input type="number" th:field="*{companyId}" class="form-control" required>
+                </div>
+            </div>
+            
+             <div class="row">
+                <div class="col-sm-12">
+                    <label for="companyName">Company Name</label>
+                    <input type="text" th:field="*{companyName}" class="form-control" required>
+                </div>
+            </div>
+
+				
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="companyEmail">Company Email</label>
+                    <input type="text" th:field="*{companyEmail}" class="form-control" required>
+                </div>
+            </div>
+            
+           <div class="row">
+					<div class="col-sm-12">
+						<label for="mobile">Mobile</label>
+						<input type="text" th:field="*{mobile}"  class="form-control" required>
+					</div>
+				</div>
+				
+			<div class="row">
+					<div class="col-sm-12">
+						<label for="location">Location</label>
+						<input type="text" th:field="*{location}" class="form-control" required>
+					</div>
+				</div>
+				
+					<div class="row">
+					<div class="col-sm-12">
+						<label for="city">City</label>
+						<input type="text" th:field="*{city}" class="form-control" required>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-12">
+						<label for="state">State</label>
+						<input type="text" th:field="*{state}" class="form-control" required>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-12">
+						<label for="companyLevel">Company Level</label>
+						<input type="text" th:field="*{companyLevel}" class="form-control" required>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-12">
+						<label for="url">Url</label>
+						<input type="text" th:field="*{url}" class="form-control" required>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-12">
+						<label for="logo">logo</label>
+						<input type="file" name="logo1" class="form-control" required>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-12">
+						<label for="password">Password</label>
+						<input type="text" th:field="*{password}" class="form-control" required>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-12">
+						<label for="registerDate">RegisterDate</label>
+						<input type="text" th:field="*{registerDate}" class="form-control" required>
+					</div>
+				</div>
+				
+            <div class="row">
+                <div class="col-sm-12">
+                    <input type="submit" style="width: 150px" name="submit" class="form-control btn btn-outline-dark" value="Add Comapny">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 th:text="${responseString}"></h2>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

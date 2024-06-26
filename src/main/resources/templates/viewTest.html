@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<div th:replace="header::header"></div>
+	<div th:include="title::title"></div>
+</head>
+
+<body style="background-color: rgb(255, 206, 157);" class="bg">
+	<div th:replace="companymenu::companymenu"></div>
+	<h2 class="text-center">Tests</h2>
+	<div class="card" style="width:90%; margin: auto;">
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>VacancyId</th>
+					<th>JobTitle</th>
+					<th>Test Id</th>
+					<th>Test Date</th>
+					<th>Test Duration</th>
+					
+					<th>Update</th>
+					<th>Remove</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<!-- Iterate over vacancies -->
+				<tr th:each="test : ${testList}">
+
+					<td th:text="${test.vacancy.vacancyId}"></td>
+					<td th:text="${test.vacancy.jobTitle}"></td>
+					<td th:text="${test.testId}"></td>
+					<td th:text="${test.testDate}"></td>
+					<td th:text="${test.testDuration}"></td>
+
+					
+					<td>
+						<a th:href="@{/updateTest/{testId}(testId=${test.testId})}" class="btn btn-primary">Edit</a>
+
+					</td>
+
+					<td>
+						<a th:href="@{/deleteTests/{testId}(testId=${test.testId},vacancyId=${test.vacancy.vacancyId})}"
+							class="btn btn-danger">Delete</a>
+					</td>
+					
+					<td>
+						<a th:href="@{'/addQuestion?testId=' + ${test.testId} + '&vacancyId=' + ${test.vacancy.vacancyId}}"
+							class="btn btn-success">Add Question</a>
+					</td>
+
+				</tr>
+
+
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>

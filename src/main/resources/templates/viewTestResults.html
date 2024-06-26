@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Test Results</title>
+    <!-- Add any additional CSS or stylesheets here -->
+</head>
+<body>
+    <h1>View Test Results</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Result ID</th>
+                <th>Question</th>
+                <th>Selection Option</th>
+                <th>Result</th>
+                <th>Score</th>
+                <!-- Add more table headers as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Use Thymeleaf to loop through the list of test results -->
+            <tr th:each="testResult : ${testResults}">
+                <td th:text="${testResult.resultId}"></td>
+              	<td th:text="${testResult.jobseekers.userId}"></td>
+                <td th:text="${testResult.vacancy.vacancyId}"></td>
+                <td th:text="${testResult.result}"></td>
+                <td th:text="${testResult.score}"></td>
+                <!-- Add more table cells for additional attributes -->
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div th:replace="header::header"></div>
+    <div th:include="title::title"></div>
+</head>
+
+<body style="background-color: antiquewhite;" class="bg">
+    <div th:replace="adminmenu::adminmenu"></div>
+		 <h2 class="text-center">Company Details</h2>
+    <div class="card" style="width:90%; margin: auto;">
+       
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Company Id</th>
+                    <th>Company Name</th>
+                    <th>Company Email</th>
+                    <th>Mobile</th>
+                    <th>Location</th>
+                    <th>City</th>
+                    <th>State</th>
+                 	
+                    <th>URL</th>
+                    <th>Register Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="company : ${companyList}">
+                    <td th:text="${company.companyId}"></td>
+                    <td th:text="${company.companyName}"></td>
+                    <td th:text="${company.companyEmail}"></td>
+                    <td th:text="${company.mobile}"></td>
+                    <td th:text="${company.location}"></td>
+                    <td th:text="${company.city}"></td>
+                    <td th:text="${company.state}"></td>
+                   	
+                    <td th:text="${company.url}"></td>
+                    <td th:text="${company.registerDate}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

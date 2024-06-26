@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div th:replace="header::header"></div>
+    <div th:include="title::title"></div>
+</head>
+
+<body style="background-color: rgb(170, 255, 170);" class="bg">
+    <div th:replace="adminmenu::adminmenu"></div>
+		 <h2 class="text-center">Vacancy Details</h2>
+    <div class="card" style="width:90%; margin: auto;">
+       
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Vacancy Id</th>
+                   
+                    <th>Post Date</th>
+                    <th>Job Title</th>
+                    <th>Job Description</th>
+                    <th>Requirements</th>
+                    <th>No.Of.Vacancies</th>
+                 	
+                    <th>Open Date</th>
+                    <th>Close Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="vacancies : ${vacancyList}">
+                    <td th:text="${vacancies.vacancyId}"></td>
+                   
+                    <td th:text="${vacancies.postDate}"></td>
+                    <td th:text="${vacancies.jobTitle}"></td>
+                    <td th:text="${vacancies.description}"></td>
+                    <td th:text="${vacancies.requirements}"></td>
+                    <td th:text="${vacancies.noOfVacancies}"></td>
+                   	
+                    <td th:text="${vacancies.openDate}"></td>
+                    <td th:text="${vacancies.closeDate}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

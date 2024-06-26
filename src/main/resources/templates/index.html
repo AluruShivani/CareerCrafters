@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header::header">
+    <!-- Include title -->
+    <div th:include="title::title"></div>
+    <style>
+        /* Add this CSS to fix the position of the navbar */
+        .custom-navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000; /* Ensure the navbar is on top of other elements */
+        }
+
+        /* Adjust the body margin to prevent content from being hidden behind the fixed navbar */
+        body {
+            margin-top: 70px; /* Adjust this value based on the height of your navbar */
+        }
+
+        /* Add padding to the top of the content to compensate for the fixed navbar */
+        .content {
+            padding-top: 70px; /* Adjust this value to add space between the navbar and the content */
+        }
+
+        /* Common styles */
+        .cl-12 {
+            text-align: center;
+        }
+
+        .centered-image {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Overlay styles */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overlay:hover {
+            opacity: 1; /* Make the overlay fully opaque on hover */
+        }
+
+        /* Text styles */
+        .text {
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            opacity: 0; /* Initial opacity set to 0 */
+            transition: opacity 0.8s ease;
+        }
+
+        .overlay:hover .text {
+            opacity: 1; /* Make the text fully visible on hover */
+        }
+
+        /* Additional styles for the text */
+        .additional-text {
+            text-align: center; /* Center the text */
+            font-size: 40px; /* Increase font size */
+            font-weight: bold; /* Optionally, make the text bold */
+            margin-top: 10px; /* Add some top margin for spacing */
+            color: brown;
+        }
+        .additional-text1 {
+            text-align: center; /* Left align the text */
+            font-size: 35px; /* Increase font size */
+            font-weight: bold; /* Optionally, make the text bold */
+            margin-top: 10px; /* Add some top margin for spacing */
+            color: green;
+        }
+
+        /* Custom styles for the images */
+        .custom-image {
+            max-width: 50%; /* Set the maximum width of the image */
+            height: auto;
+            margin: 10px; /* Add some margin */
+        }
+
+        /* Adjust the width of the columns for smaller screens */
+        @media (max-width: 768px) {
+            .col {
+                flex: 0 0 100%; /* Set the width to 100% for smaller screens */
+            }
+        }
+        .container {
+            display: inline-block; /* Display containers side by side */
+            position: relative;
+            width: 30%;
+            margin: 10px; /* Added margin for spacing between containers */
+        }
+
+        .image {
+            opacity: 1;
+            display: block;
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden;
+            border: 5px solid #ddd; /* Add border to the images */
+            border-radius: 10px; /* Optional: Add some border radius for a softer look */
+            box-sizing: border-box; /* Ensure border width is included in the width */
+            width: 100%; /* Ensure the width spans the container */
+            height: auto; /* Allow the height to adjust according to the image's aspect ratio */
+        }
+
+        /* Hover effect for the images */
+        .container:hover .image {
+            transform: scale(1.1); /* Scale the image up on hover */
+        }
+
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            font-weight: bold; /* Make the text bold */
+            font-size: 25px; /* Remove default bullet points */
+            padding: 0; /* Remove default padding */
+            margin: 0; /* Remove default margin */
+        }
+
+        li {
+            font-weight: bold; /* Make the text bold */
+            font-size: 20px; /* Increase the font size */
+            margin-bottom: 10px; /* Add some spacing between items */
+        }
+
+        /* Style for IT and NON-IT categories */
+        .category-container {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+<div th:include="menu::menu"></div>
+
+<div class="cl-12">
+    <div class="image-container" >
+        <img th:src="@{/images/cc3.jpg}" class="centered-image" />
+        <div class="overlay">
+            <p class="text text-decoration-underline">Navigate Your Career, Elevate Your Future.&#127775;</p>
+        </div>
+    </div>
+</div>
+<div class="additional-text text-decoration-underline">
+    Companies
+</div>
+
+<!-- Bootstrap grid for images -->
+<div class="container" >
+    <img th:src="@{/images/cc6.jpg}" alt="clean" class="image" style="width:100%">
+</div>
+
+<!-- Second container for the second cleaning image -->
+<div class="container" >
+    <img th:src="@{/images/cc5.jpg}" alt="plumb" class="image" style="width:100%">
+</div>
+
+<div class="container" >
+    <img th:src="@{/images/cc8.jpg}" alt="paint" class="image" style="width:100%">
+</div>
+
+<div class="container" >
+    <img th:src="@{/images/cc4.jpg}" alt="paint" class="image" style="width:100%">
+</div>
+
+<div class="container">
+    <img th:src="@{/images/cc12.jpg}" alt="paint" class="image" style="width:100%">
+</div>
+
+<div class="container">
+    <img th:src="@{/images/cc7.jpg}" alt="paint" class="image" style="width:100%">
+</div>
+
+<div class="container">
+    <img th:src="@{/images/cc11.jpg}" alt="paint" class="image" style="width:100%">
+</div>
+
+<div class="container">
+    <img th:src="@{/images/cc2.jpg}" alt="paint" class="image" style="width:100%">
+</div>
+
+<div class="container">
+    <p class="fw-bold">Career crafting is an inevitable course of career-related actions to achieve career satisfaction. 
+        Based on proactive behavior theory, it is hypothesized that career crafting would have an impact on individuals’ subjective career success and perceived employability through the moderating role of job autonomy.
+        Using cross-sectional study design, data were collected via Google Forms survey from 224 employees working in various fields in Pakistan and data were analyzed using structural equation modeling (SEM) via AMOS. 
+        The results indicate that career crafting has a significant positive relationship with subjective career success and perceived employability.</p>
+</div>
+
+<!--<div class="additional-text1 text-decoration-underline">
+    Categories
+</div>
+
+<div class="category-container mt-5">
+    <ul>
+        <li>------IT------</li>
+        <li>&#128313;&#128313;System Analyst</li>
+        <li>&#128313;&#128313;Software Developer</li>
+        <li>&#128313;&#128313;Cloud Engineer</li>
+        <li>&#128313;&#128313;Web Developer</li>
+        <li>&#128313;&#128313;Software Engineer</li>
+        <li>&#128313;&#128313;Computer Programmer</li>
+        <li>&#128313;&#128313;Database Administration</li>
+        <li>&#128313;&#128313;Network Administration</li>
+        <li>&#128313;&#128313;Cybersecurity Specialist</li>
+    </ul>
+
+    <ul>
+        <li>------NON-IT------</li>
+        <li>&#128313;&#128313;Sales</li>
+        <li>&#128313;&#128313;Marketing</li>
+        <li>&#128313;&#128313;Finance</li>
+        <li>&#128313;&#128313;Customer Service</li>
+        <li>&#128313;&#128313;Management Consultant</li>
+        <li>&#128313;&#128313;Accountant</li>
+        <li>&#128313;&#128313;Business Development</li>
+        <li>&#128313;&#128313;Data Science</li>
+        <li>&#128313;&#128313;Digital Marketing</li>
+    </ul>
+</div>-->
+
+<div class="container-fluid" style="background-color: black;">
+    <footer class="text-center text-lg-strat text-white" style="background-color:black;">
+        <div class="conatiner p-4 pb-0">
+            <section class="">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">CareerCrafters</h6>
+                        <p>We Provide</p>
+                    </div>
+                    <hr class="w-100 clearfix d-md-none"/>
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3 ">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Available Services</h6>
+                        <p><a class="text-white">IT</a></p>
+                        <p><a class="text-white">NON-IT</a></p>
+                    </div>
+
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h6 class="text-uppercase md-4 font-weight-bold">Useful Links</h6>
+                        <p><a class="text-white">Your Account</a></p>
+                        <p><a class="text-white">Become an Affiliate</a></p>
+                        <p><a class="text-white">Help</a></p>
+                    </div>
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+                        <p><i class="fas fa-home"></i>Telenaga,10012</p>
+                        <p><i class="fas fa-envelope"></i>tg89@gmail.com</p>
+                        <p><i class="fas fa-phone"></i>+91 234 567 88</p>
+                        <p><i class="fas fa-print"></i>+91 234 567 89</p>
+                    </div>
+                </div>
+            </section>
+            <hr class="my-3">
+            <div class="row d-flex align-items-center">
+                <div class="col-md-7 col-lg-8 text-center">
+                    <div class="p-3">2020 Copyright:<a class="text-white" href="#">@CareerCrafters345.com</a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>

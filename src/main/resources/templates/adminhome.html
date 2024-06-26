@@ -1,0 +1,27 @@
+<html>
+<head th:replace="header::header">
+    <style>
+        /* Center the image */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Adjust as needed */
+            flex-wrap: wrap; /* Allow items to wrap onto the next line */
+        }
+
+        /* Ensure images are displayed side by side */
+        .image-container img {
+            margin: 10px; /* Adjust the margin between images */
+        }
+    </style>
+</head>
+<body>
+<div th:include="title::title"></div>
+<div th:include="adminmenu::adminmenu"></div>
+<div class="image-container">
+    <img src="/images/cc13.jpg" th:src="@{/images/cc13.jpg}" style="width: 658px; height: 500px;">
+    <img src="/images/cc13.jpg" th:src="@{/images/cc16.jpg}" style="width: 658px; height: 500px;">
+</div>
+</body>
+</html>

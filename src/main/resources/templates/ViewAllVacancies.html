@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<div th:replace="header::header"></div>
+	<div th:include="title::title"></div>
+	<style>
+		/* Modal styles */
+		.modal {
+			display: none;
+			position: fixed;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0, 0, 0, 0.4);
+		}
+
+		.modal-content {
+			background-color: #fefefe;
+			margin: 15% auto;
+			padding: 20px;
+			border: 1px solid #888;
+			width: 80%;
+			max-width: 500px;
+			/* Limit the maximum width of the modal */
+			border-radius: 10px;
+			/* Add rounded corners */
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			/* Add shadow */
+		}
+
+		/* Modal close button */
+		.close {
+			color: #aaa;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: black;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		/* Button container */
+		.button-container {
+			display: flex;
+			justify-content: flex-end;
+			margin-top: 20px;
+		}
+
+		/* Button styles */
+		.btn {
+			margin-left: 10px;
+		}
+
+		.btn-sm {
+			padding: 5px 10px;
+			font-size: 14px;
+		}
+	</style>
+</head>
+
+<body style="background-color: rgb(170, 255, 170);" class="bg">
+
+
+
+
+
+	<div th:replace="usermenu::usermenu"></div>
+	<h2 class="text-center">Vacancies</h2>
+	<div class="card" style="width:90%; margin: auto;">
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Vacancy Id</th>
+					<th>Company Id</th>
+					<th>Company Name</th>
+					<th>Post Date</th>
+					<th>Job Title</th>
+					<th>Job Description</th>
+					<th>Requirements</th>
+					<th>No.Of.Vacancies</th>
+
+					<th>Open Date</th>
+					<th>Close Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="vacancy : ${vacancyList}">
+					<td th:text="${vacancy.vacancyId}"></td>
+					<!-- Access the companyName property directly from the Vacancies object -->
+					<td th:text="${vacancy.company.companyId}"></td>
+					<td th:text="${vacancy.company.companyName}"></td>
+					<td th:text="${vacancy.postDate}"></td>
+					<td th:text="${vacancy.jobTitle}"></td>
+					<td th:text="${vacancy.description}"></td>
+					<td th:text="${vacancy.requirements}"></td>
+					<td th:text="${vacancy.noOfVacancies}"></td>
+					<td th:text="${vacancy.openDate}"></td>
+					<td th:text="${vacancy.closeDate}"></td>
+					<td>
+						<a th:href="@{/jobApply(vacancyId=${vacancy.vacancyId})}" class="btn btn-success">Apply</a>
+					</td>
+
+
+</body>
+
+</html>

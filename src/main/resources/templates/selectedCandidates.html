@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="header::header">
+	<div th:include="title::title"></div>
+</head>
+<body>
+	<div th:replace="companymenu::companymenu"></div>
+<h2>All Selected Candidates</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Vacancy ID</th>
+        <th>Test ID</th>
+        <th>Job Seeker ID</th>
+        <th>Score</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="candidate : ${selectedCandidates}">
+        <td th:text="${candidate.id}"></td>
+        <td th:text="${candidate.vacancyId}"></td>
+        <td th:text="${candidate.testId}"></td>
+        <td th:text="${candidate.jobseekerId}"></td>
+        <td th:text="${candidate.score}"></td>
+        <td th:text="${candidate.status}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

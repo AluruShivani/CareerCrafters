@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header::header">
+    <!-- Add your favicon link here -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div th:fragment="adminmenu">
+        <style>
+            .custom-navbar {
+                background-color: #d7dbd8;
+            }
+            
+            li a:hover,
+            .dropdown:hover.dropbtn{
+                background-color: yellow;
+                color: white;
+            }
+            .navbar{
+				background: transparent;
+				backdrop-filter: blur(10px);
+			}
+        </style>
+
+        <nav class="navbar navbar-expand-lg navbar-light custom-navbar sticky-top">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/adminhome}">
+                                <i class="fas fa-home"></i> Home
+                            </a>
+                        </li>
+                       <li class="nav-item">
+                            <a class="nav-link" th:href="@{/viewCompanies}">
+                                <i class="fas fa-sign-in-alt"></i>Company
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/viewvacancies}">
+                                <i class="fab fa-artstation"></i>Vacancies
+                            </a>
+                        </li>
+                      <li class="nav-item">
+                            <a class="nav-link" th:href="@{/viewjobseekers}">
+                                <i class="fas fa-users"></i> Users
+                            </a>
+                        </li>
+                       <li class="nav-item">
+                            <a class="nav-link" th:href="@{/}">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

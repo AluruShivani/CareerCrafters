@@ -1,0 +1,134 @@
+package com.example.demo.entity;
+
+
+
+public class JobSeekers {
+	private int userId;
+	private String firstName;
+	private String lastName;
+	private String regDate;
+	private String dateOfBirth;
+	private String gender;
+	private String email;
+	private String mobile;
+	private String address;
+	private String password;
+	private String profilepic;
+	private String qualifications;
+	private String experience;
+	public JobSeekers() {
+		super();
+	}
+	public JobSeekers(int userId, String firstName, String lastName, String regDate, String dateOfBirth, String gender,
+			String email, String mobile, String address, String password, String profilepic, String qualifications,
+			String experience) {
+		super();
+		this.userId = userId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.regDate = regDate;
+		this.dateOfBirth = dateOfBirth;
+		this.gender = gender;
+		this.email = email;
+		this.mobile = mobile;
+		this.address = address;
+		this.password = password;
+		this.profilepic = profilepic;
+		this.qualifications = qualifications;
+		this.experience = experience;
+	}
+	public String getProfilepic() {
+		return profilepic;
+	}
+	public void setProfilepic(String profilepic) {
+		this.profilepic = profilepic;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
+	}
+	public String getDateOfBirth() {
+		return dateOfBirth;
+	}
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getProfilePic() {
+		return profilepic;
+	}
+	public void setProfilePic(String profilePic) {
+		this.profilepic = profilePic;
+	}
+	public String getQualifications() {
+		return qualifications;
+	}
+	public void setQualifications(String qualifications) {
+		this.qualifications = qualifications;
+	}
+	public String getExperience() {
+		return experience;
+	}
+	public void setExperience(String experience) {
+		this.experience = experience;
+	}
+	@Override
+	public String toString() {
+		return "JobSeekers [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", regDate="
+				+ regDate + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender + ", email=" + email + ", mobile="
+				+ mobile + ", address=" + address + ", password=" + password + ", profilePic=" + profilepic
+				+ ", qualification=" + qualifications + ", experience=" + experience + "]";
+	}
+	
+	
+
+}

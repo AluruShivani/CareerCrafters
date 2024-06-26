@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="header::header">
+    <div th:include="title::title"></div>
+    <style>
+		.input {
+  margin: 30px;
+  background: none;
+  border: none;
+  outline: none;
+  max-width: 190px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 9999px;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+  color: #fff;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  background-image: conic-gradient(from 0deg, orange, orangered, orange);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: orange;
+}
+
+	</style>
+</head>
+<body>
+   
+    <div  class=" container container card" style="width: 50%; background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+        <form th:action="@{/ValidateAdminLogin}" th:object="${admin}" method="post">
+            <h4 style="color: #333; text-align: center;">Admin Login</h4>
+            <div class="form-group">
+                <label for="username" style="color: #333;">Username:</label>
+                <input class="input" type="text" id="userName" name="userName" th:field="*{userName}" required autofocus style="width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+            </div>
+            <div class="form-group">
+                <label for="password" style="color: #333;">Password:</label>
+                <input class="input" type="password" id="password" name="password" th:field="*{password}" required style="width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+            </div>
+            <div class="form-group">
+                <button type="submit" style="width: 100%; background-color: #4CAF50; color: white; padding: 14px 20px; margin: 8px 0; border: none; border-radius: 4px; cursor: pointer;">Login</button>
+            </div>
+            <div>
+                <h3 th:text="${responseText}" style="color: #4CAF50; text-align: center;"></h3>
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>

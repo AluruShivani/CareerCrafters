@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header::header">
+    <div th:include="title::title"></div>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            margin-top: 20px; /* Adjusted margin-top */
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        label {
+            font-weight: bold;
+        }
+        .form-control {
+            margin-bottom: 20px;
+        }
+        .btn-container {
+            text-align: center; /* Centering the button */
+        }
+        .btn {
+            width: 150px;
+            margin-top: 20px; /* Adjusted margin-top */
+        }
+    </style>
+</head>
+<body  class="bg">
+    <div th:replace="companymenu::companymenu"></div>
+    <br/><br/>
+    <h2 class="text-center">Add Vacancy</h2>
+    <div class="container card" style="width: 50%; margin: auto;">
+        <form th:action="@{/addVacancy}" th:object="${vacancies}" method="POST">
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="vacancyId">Vacancy Id</label>
+                    <input type="text" th:field="*{vacancyId}" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="companyId">Company Id</label>
+                    <input type="text" class="form-control" name="companyId" th:value="${companyId}" readonly/>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="postDate">Post Date</label>
+                    <input type="text" th:field="*{postDate}" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="jobTitle">Job Title</label>
+                    <input type="text" th:field="*{jobTitle}"  class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="description">Job Description</label>
+                    <input type="text" th:field="*{description}" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="requirements">Requirements</label>
+                    <input type="text" th:field="*{requirements}" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="noOfVacancies">No.Of.Vacancies</label>
+                    <input type="text" th:field="*{noOfVacancies}" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="openDate">Open Date</label>
+                    <input type="text" th:field="*{openDate}" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="closeDate">Close Date</label>
+                    <input type="text" th:field="*{closeDate}" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row btn-container"> <!-- Moved button to its own row with centered text -->
+                <div class="col-sm-12">
+                    <input type="submit" name="submit" class="form-control btn btn-outline-success" value="Add Vacancy">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 th:text="${responseString}"></h2>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

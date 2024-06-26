@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+   
+  <head th:replace="header::header">
+	<div th:include="title::title"></div>
+    <style>
+		/* companyprofile.css */
+
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Container styles */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Content styles */
+.content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Company info styles */
+.company-info {
+    margin-top: 20px;
+}
+
+.company-info p {
+    margin-bottom: 10px;
+}
+
+.company-info strong {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+/* Animation example */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Apply animation to content */
+.content {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+	</style>
+    <link rel="stylesheet" type="text/css" href="styles/companyprofile.css">
+    <div th:replace="companymenu::companymenu"></div>
+</head>
+<body>
+    <div class="container">
+        <header th:replace="header::header"></header>
+        <div class="content">
+            <h1 class="text-center text-success">Company Profile</h1>
+            <div class="company-info">
+				<img th:src="@{http://localhost:8091/CareerCrafters/uploads/{logo}(logo=${company1.logo})}" alt="Profile Picture"
+					class="rounded-pill img-thumbnail" style="max-width: 250px;">
+			
+				 <!--<p><strong>Logo:</strong> <span th:text="${company.logo}"></span></p>-->
+                <p><strong>Company ID:</strong> <span th:text="${company1.companyId}"></span></p>
+                <p><strong>Company Name:</strong> <span th:text="${company1.companyName}"></span></p>
+                <p><strong>Company Email:</strong> <span th:text="${company1.companyEmail}"></span></p>
+                <p><strong>City:</strong> <span th:text="${company1.city}"></span></p>
+                <p><strong>State:</strong> <span th:text="${company1.state}"></span></p>
+                <p><strong>Company Level:</strong> <span th:text="${company1.companyLevel}"></span></p>
+                <p><strong>Company Location:</strong> <span th:text="${company1.location}"></span></p>
+                <p><strong>Contact:</strong> <span th:text="${company1.mobile}"></span></p>
+                <p><strong>Registration Date:</strong> <span th:text="${company1.registerDate}"></span></p>
+                <p><strong>Password:</strong> <span th:text="${company1.password}"></span></p>
+            </div>
+        </div>
+    </div>
+    <!-- Add animations and custom scripts if needed -->
+    <script src="scripts/companyprofile.js"></script>
+</body>
+</html>

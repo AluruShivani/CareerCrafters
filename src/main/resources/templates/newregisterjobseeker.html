@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header::header">
+    <div th:include="title::title"></div>
+</head>
+<body style="background-color:rgb(192, 192, 192)" class="bg">
+   
+    <br/><br/>
+    <h2 class="text-center">Add Details</h2>
+    <div class="container card" style="width: 50%; margin: auto;">
+        <form th:action="@{/newregisterjobseeker}" th:object="${jobseekers}" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="firstName">First Name</label>
+                    <input type="text" th:field="*{firstName}" class="form-control" required>
+                </div>
+            </div>
+            
+             <div class="row">
+                <div class="col-sm-12">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" th:field="*{lastName}" class="form-control" required>
+                </div>
+            </div>
+
+				
+            
+            
+           <div class="row">
+					<div class="col-sm-12">
+						<label for="mobile">Mobile</label>
+						<input type="text" th:field="*{mobile}"  class="form-control" required>
+					</div>
+				</div>
+				
+				
+			<div class="row">
+					<div class="col-sm-12">
+						<label for="dateOfBirth">Date Of Birth</label>
+						<input type="text" th:field="*{dateOfBirth}" class="form-control" required>
+					</div>
+				</div>
+				
+					<div class="row">
+					<div class="col-sm-12">
+						<label for="gender">Gender</label>
+						<input type="text" th:field="*{gender}" class="form-control" required>
+					</div>
+				</div>
+
+				
+				<div class="row">
+					<div class="col-sm-12">
+						<label for="email">Email</label>
+						<input type="text" th:field="*{email}" class="form-control" required>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-12">
+						<label for="address">Address</label>
+						<input type="text" th:field="*{address}" class="form-control" required>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-12">
+						<label for="password">Password</label>
+						<input type="text" th:field="*{password}" class="form-control" required>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-12">
+						<label for="qualification">Qualification</label>
+						<input type="text" th:field="*{qualifications}" class="form-control" required>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-12">
+						<label for="experience">Experience</label>
+						<input type="text" th:field="*{experience}" class="form-control" required>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-12">
+						<label for="regDate">RegisterDate</label>
+						<input type="text" th:field="*{regDate}" class="form-control" placeholder="enter today's date">
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-12">
+						<label for="profilePic">ProfilePic</label>
+						<input type="file" name="profilePic1"  class="form-control">
+					</div>
+				</div>
+				
+				
+				
+            <div class="row">
+                <div class="col-sm-12">
+                    <input type="submit" style="width: 150px" name="submit" class="form-control btn btn-outline-dark" value="Add ">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 th:text="${responseString}"></h2>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
